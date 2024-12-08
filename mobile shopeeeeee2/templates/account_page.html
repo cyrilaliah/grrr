@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account</title>
+    <link rel="stylesheet" href="/static/accpage.css">
+</head>
+<body>
+    {%include 'nav_account.html' %}
+
+    <div class="account-container">
+         <h1 class="user-account">user account</h1>
+        <!-- Profile Section -->
+         
+        <div class="profile-section">
+            <h2 class="user-name">Full Name</h2>
+            <p>Email:</p>
+        </div>
+    
+        <!-- User Info Section -->
+        <form class="user-info-form">
+            <h3 style="font-size: 20px;">Edit Information</h3>
+            <label for="username">Full Name:</label>
+            <input type="text" id="username" value="">
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" value="johndoe@example.com">
+    
+            <button type="submit">Save Changes</button>
+        </form>
+    
+        <!-- Password Update Section -->
+        <form class="password-form">
+            <h3 style="font-size: 20px;">Change Password</h3>
+            <label for="current-password">Current Password:</label>
+            <input type="password" id="current-password" required>
+    
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" required>
+    
+            <label for="confirm-password">Confirm New Password:</label>
+            <input type="password" id="confirm-password" required>
+    
+            <button type="submit">Update Password</button>
+        </form>
+    </div>
+</body>
+</html>

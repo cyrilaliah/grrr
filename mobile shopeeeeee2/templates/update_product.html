@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update Product</title>
+
+    <!-- Custom Styles -->
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8c5db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Centers the content vertically and horizontally */
+        }
+
+        .form-container {
+            background: linear-gradient(to right, #f857a6, #f0a9c9);
+            padding: 20px;  /* Adjusted padding to fit the container */
+            text-align: center;
+            font-size: 18px; /* Adjusted font size */
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px; /* Adjusted max width to make it compact */
+            margin: 20px;  /* Ensures a bit of spacing from other content */
+        }
+
+        h1 {
+            color: #fefefe;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1em;
+            font-size: 22px; /* Adjusted font size */
+        }
+
+        .form-container form {
+            background: #fadfeb;
+            color: #333;
+            padding: 20px;  /* Adjusted padding */
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container label {
+            display: block;
+            margin: 0.5em 0 0.2em;
+            color: #f42783;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="number"],
+        .form-container textarea {
+            width: 100%;
+            padding: 0.7em;  /* Padding for input fields */
+            margin-bottom: 1em;  /* Margin for input fields */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .form-container input:focus,
+        .form-container textarea:focus {
+            outline: 2px solid #f857a6;
+        }
+
+        button {
+            background-color: #f38ebc;
+            padding: 0.8em;  /* Adjusted button padding */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+            width: 100%;  /* Full-width button */
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #f857a6, #ff9a9e);
+            transform: translateY(-2px);
+        }
+
+        /* Back to Dashboard link */
+        .back-to-dashboard {
+            align-items: center;
+            display:inline-block;
+            margin-bottom: 700px;   
+            padding: 10px 20px;
+            background-color: #f857a6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-to-dashboard:hover {
+            background: linear-gradient(to right, #ff9a9e, #f857a6);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Update Product</h1>
+        <form method="POST">
+            <div>
+                <label for="name">Product Name:</label>
+                <input type="text" id="name" name="name" value="{{ product.name }}" required>
+            </div>
+
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required>{{ product.description }}</textarea>
+            </div>
+
+            <div>
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" value="{{ product.price }}" step="0.01" required>
+            </div>
+
+            <div>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="{{ product.quantity }}" required>
+            </div>
+
+            <div>
+                <label for="image_url">Image URL:</label>
+                <input type="text" id="image_url" name="image_url" value="{{ product.image_url }}">
+            </div>
+
+            <button type="submit">Update Product</button>
+        </form>
+    </div>
+    <!-- Back to Dashboard link placed below the container -->
+    <a href="{{ url_for('seller_dashboard') }}" class="back-to-dashboard" style="text-align: center;">Back to Dashboard</a>    </div>
+</body>
+</html>

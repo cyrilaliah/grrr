@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Seller Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: pink;
+            --secondary-color: #f7bfdb;
+            --text-color: white;
+            --accent-glow: #ff69b4; /* You can change this to any color for the glow */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7bfdb;
+        }
+
+        .navbar { 
+            background: linear-gradient(135deg, rgba(10,14,26,0.8), rgba(20,25,40,0.6));
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,192,203,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-color) !important;
+            letter-spacing: -1px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand::before {
+            content: '◈';
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1rem; /* Adjusted font size for consistency */
+            color: white !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            opacity: 0;
+        }
+
+        .navbar-nav .nav-link:hover {
+            opacity: 1;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            transform: scaleX(1);
+            opacity: 1;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        .content {
+            color: rgb(0, 0, 0);
+            padding: 2rem;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 36px;
+            color: #020202;
+            font-weight: bold;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Seller Dashboard</a>
+        <!-- Toggler Button (appears on smaller screens) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon text-light">&#9776;</span>
+        </button>
+
+        <!-- Navbar Links (collapsed on small screens) -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('user_home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('seller_dashboard') }}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('product_management') }}">Product Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('seller_orders') }}">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="content">
+    <h2>Welcome to the Seller Dashboard</h2>
+    <p>Manage products, orders, and more from here.</p>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

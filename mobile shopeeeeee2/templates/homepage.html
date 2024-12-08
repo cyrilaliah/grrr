@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Shopee</title>
+  <link rel="stylesheet" href="/static/homepage.css">
+
+  <!-- Owl-carousel CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+
+  <!-- font awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
+</head>
+
+<body>
+  {% include 'navbar_user.html'%}
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Welcome to Mobile Shopee</h1>
+    <p>Your one-stop shop for buying and selling cellphones!</p>
+    <a href="#products" class="cta-button">Shop Now</a>
+  </section>
+  <!-- Products Section -->
+<section class="products" id="products">
+  <h2>Featured Products</h2>
+  <!-- Filter Buttons -->
+  <div class="filter-buttons">
+      <button class="filter-btn" onclick="filterProducts('all')">All Brands</button>
+      <button class="filter-btn" onclick="filterProducts('samsung')">Samsung</button>
+      <button class="filter-btn" onclick="filterProducts('iphone')">iPhone</button>
+  </div>
+  <div class="product-grid">
+      {% if products %}
+          {% for product in products %}
+              <div class="product-card" data-brand="{{ product['brand'] }}">
+                  <img src="{{ url_for('static', filename='uploads/' + product['image_url']) }}" alt="{{ product['name'] }}" class="product-image">
+                  <div class="product-details">
+                      <h3>{{ product['name'] }}</h3>
+                      <p class="product-description">{{ product['description'] }}</p>
+                      <p class="price">${{ product['price'] }}</p>
+                      <p class="stock">Stock: {{ product['stock_quantity'] }}</p>
+                      <p class="category">Category: {{ product['category'] }}</p>
+                  </div>
+                  <div class="product-actions">
+                      <form action="{{ url_for('add_to_cart', product_id=product['id']) }}" method="POST">
+                          <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                      </form>
+                  </div>
+              </div>
+          {% endfor %}
+      {% else %}
+          <p class="no-products"></p>
+      {% endif %}
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <p>We would love to hear from you! Reach out to us with any questions, feedback, or inquiries.</p>
+  <div class="contact-details">
+    <div class="contact-item">
+      <h3>Email</h3>
+      <p><a href="mailto:mobileshopee@gmail.com">mobileshopee@gmail.com</a></p>
+    </div>
+    <div class="contact-item">
+      <h3>Phone</h3>
+      <p><a href="tel:049-559-5700">049-559-5700</a></p>
+    </div>
+    <div class="contact-item">
+      <h3>Address</h3>
+      <p>0808 Mobile Shopee<br>LSPU, Sta. Cruz</p>
+    </div>
+  </div>
+  <!-- Contact Form -->
+  <form class="contact-form">
+    <div class="form-group">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+    <div class="form-group">
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="4" placeholder="Type your message here" required></textarea>
+    </div>
+    <button type="submit" class="submit-button">Send Message</button>
+  </form>
+</section>
+
+
+  <footer class="footer">
+    <p>&copy; 2024 Mobile Shopee. All rights reserved.</p>
+  </footer>
+
+  <script src="/static/js/scripts.js"></script>
+</body>
+</html>

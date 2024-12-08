@@ -1,0 +1,149 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8c5db;
+}
+
+h1, h2, h3 {
+    color: #f857a6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1em;
+}
+
+.checkout-container {
+    align-items: center;
+    margin: 30px auto;
+    max-width: 800px;
+    background: #fadfeb;
+    color: #333;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+    padding: 32px;
+}
+
+.product-list, .payment-details, .user-info {
+    margin-bottom: 20px;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f38ebc; /* Light pink color for price */
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input:focus {
+    outline: 2px solid #f857a6;
+}
+
+.subtotal {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #f8e2ec;
+    padding: 0.8em;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #f857a6, #ff9a9e);
+    transform: translateY(-2px);
+}
+
+.total-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin-top: 20px;
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+}
+
+.total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+}
+
+.place-order-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.place-order-button {
+    background-color: #f38ebc; /* Lighter pink for place order button */
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 150px;
+    margin-right: 150px;
+    padding: 10px 20px;
+}
+
+.place-order-button:hover {
+    background-color: #f857a6; /* Main color on hover */
+}
+
+.confirmation-message {
+    display: none;
+    font-size: 24px;
+    color: #28a745; /* Success green */
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

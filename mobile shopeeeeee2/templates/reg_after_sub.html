@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Submitted</title>
+    <style>
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8c5db; /* Soft, neutral background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    margin: 20px auto;
+    max-width: 700px;
+    background: white; 
+    color: #333;
+    border-radius: 20px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
+    overflow: hidden;
+    padding: 40px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #f857a6;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 15px 25px;
+    border-radius: 30px;
+    background: linear-gradient(to right, #f857a6, #f0a9c9);
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+a:hover {
+    background: linear-gradient(to left, #f857a6, #f0a9c9);
+    transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+
+    .container-header {
+        font-size: 24px;
+    }
+
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    a {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+}
+
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .success {
+            color: green;
+            background-color: #e0ffe0;
+        }
+        
+        .danger {
+            color: red;
+            background-color: #ffe0e0;
+        }
+        
+        .info {
+            color: blue;
+            background-color: #e0f0ff;
+        }
+        
+        .warning {
+            color: orange;
+            background-color: #fff3e0;
+        }
+    </style>
+</head>
+
+<body>
+    
+    
+
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container mt-3">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <!-- Close button (X) to dismiss the alert -->
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+        <h1>Your Seller Application</h1>
+        <p>You have already submitted your seller application. Please check for updates at a later time.</p>
+        <a href="{{ url_for('user_home') }}">Kindly return to your dashboard.</a>
+    </div>
+
+</body>
+
+</html>

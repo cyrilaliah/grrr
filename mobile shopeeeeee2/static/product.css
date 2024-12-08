@@ -1,0 +1,324 @@
+/* General Cart Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8c5db; /* Light pink background */
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #e872a5; /* Light pink header */
+    color: #f7f7f7;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #fff;
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.nav ul li a {
+    color: #faf4f4;
+    text-decoration: none;
+}
+
+.nav ul li a:hover {
+    text-decoration: underline;
+    color: #f42783; /* Bright pink on hover */
+}
+
+.login-button {
+    display: flex;
+    align-items: center;
+    background-color: #f0a9c9; /* Soft pink for login button */
+    color: #020202;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.login-button:hover {
+    background-color: #fdfdfd;
+    color: #e872a5;
+}
+
+/* Cart Button Styling */
+.cart {
+    position: left;
+    top: 20px;
+    right: 20px;
+    font-size: 1.2rem;
+}
+
+.cart-button {
+    display: flex;
+    align-items: center;
+    background-color: #f93c9a; /* Bright pink */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+
+.cart-button i {
+    margin-right: 10px;
+}
+
+.cart-button:hover {
+    background-color: #ff3385; /* Slightly darker pink */
+}
+
+/* Cart Item Count */
+#cart-count {
+    background-color: white;
+    color: #ff66b2; /* Soft pink for item count */
+    padding: 2px 8px;
+    border-radius: 50%;
+    font-size: 1rem;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ff99cc; /* Light pink background */
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.cta-button {
+    background-color: #fff;
+    color: #ff66b2; /* Soft pink CTA button */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #ff66b2;
+    color: #f9f8f8; /* White text on hover */
+}
+
+/* Footer */
+.footer {
+    background-color: #ff66b2; /* Soft pink footer */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background-color: #ff66b2; /* Soft pink filter button */
+    color: #fadcf0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filter-btn:hover {
+    background-color: #ff3385; /* Darker pink on hover */
+}
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 30px auto;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ff66b2; /* Soft pink heading */
+}
+
+.contact p {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ff3385; /* Darker pink heading */
+}
+
+.contact-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.contact-item a {
+    color: #ff66b2; /* Soft pink links */
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 5px auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ff66b2; /* Focused border color */
+    outline: none;
+}
+
+.submit-button {
+    background-color: #ff66b2; /* Soft pink submit button */
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #ff3385; /* Darker pink on hover */
+}
+
+.container {
+    max-width: 1200px;
+}
+
+h2 {
+    color: #ff3385; /* Dark pink for heading */
+}
+
+.rating {
+    font-size: 1.2em;
+}
+
+h5 {
+    color: #ff3385; /* Darker pink for sub-headings */
+}
+
+.review {
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+.card img {
+    object-fit: cover;
+    height: 200px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    color: #ac194a; /* Darker pink card title */
+}
+
+.btn-lg {
+    width: 100%;
+}
+
+.card-body .btn-sm {
+    width: 100%;
+}
+
+.btn-pink {
+    background-color: #FF69B4; /* Pink color */
+    color: white;
+    border-color: #FF69B4; /* Pink border color */
+}
+
+.btn-pink:hover {
+    background-color: #FF1493; /* Darker pink on hover */
+    border-color: #FF1493;
+}
+
+.btn-pink:focus, .btn-pink:active {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(255, 20, 147, 0.5); /* Soft pink glow on focus */
+}

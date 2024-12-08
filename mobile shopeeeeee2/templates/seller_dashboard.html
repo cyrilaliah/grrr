@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard</title>
+    <link rel="stylesheet" href="/static/seller_dashboard.css">
+    
+</head>
+<body>
+    {% include 'nav_seller.html' %}
+
+<div class="seller-dashboard-container">
+  <div class="dashboard-header">
+    <h1>Seller Dashboard</h1>
+    <p>Welcome to your seller dashboard. Manage your products and track your sales.</p>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-box-container">
+    <div class="stat-item">
+      <h3>Total Sales</h3>
+      <p>$5000</p>
+    </div>
+    <div class="stat-item">
+      <h3>Products Listed</h3>
+      <p>20</p>
+    </div>
+    <div class="stat-item">
+      <h3>Pending Orders</h3>
+      <p>5</p>
+    </div>
+  </div>
+
+  <!-- Products Section -->
+  <div class="seller-products-container">
+    <div class="products-title">
+      <h2>Your Products</h2>
+    </div>
+    <div class="product-container">
+        {% if products %}
+            {% for product in products %}
+                <div class="product-card">
+                    <img src="{{ url_for('static', filename='uploads/' + product['image_url']) }}" alt="{{ product['name'] }}" class="product-image">
+                    <div class="product-details">
+                        <h3>{{ product['name'] }}</h3>
+                        <p>{{ product['description'] }}</p>
+                        <p class="price">${{ product['price'] }}</p>
+                        <p class="stock">Stock: {{ product['stock_quantity'] }}</p>
+                        <p class="category">Category: {{ product['category'] }}</p>
+                    </div>
+                    <div class="product-actions">
+                        <a href="{{ url_for('update_product', id=product['id']) }}" class="update">Update</a>
+
+                        <!-- Delete Product Form -->
+                        <form action="{{ url_for('delete_product', id=product['id']) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="delete-btn" onclick="return confirm('Are you sure you want to delete this product?');">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-products">No products available.</p>
+        {% endif %}
+    </div>
+    </div>
+
+    <!-- Add New Product Button -->
+    <div class="add-product-link">
+      <a href="{{ url_for('add_product') }}">Add New Product</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

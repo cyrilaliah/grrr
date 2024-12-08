@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+       /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8c5db; /* Soft Pink */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container Styles */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: #fadfeb; /* Light Pink */
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    color: #f857a6; /* Vibrant Pink */
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #3D3B5D; /* Dark Purple-Gray */
+}
+
+/* Form Elements */
+input, select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #f857a6; /* Pink Border */
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Button Styles */
+button {
+    background-color: #f857a6; /* Vibrant Pink */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #f0a9c9; /* Softer Pink */
+}
+
+/* Links */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #f857a6;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Alerts */
+.success {
+    color: #28a745; /* Success Green */
+    background-color: #d4edda; /* Light Green Background */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.danger {
+    color: #dc3545; /* Error Red */
+    background-color: #f8d7da; /* Light Red Background */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+}     
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Product</h1>
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="name">Product Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+        
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+        
+            <div>
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+            </div>
+        
+            <div>
+                <label for="stock_quantity">Quantity:</label>
+                <input type="number" id="stock_quantity" name="stock_quantity" required>
+            </div>
+            
+            <div>
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="iphone">iPhone</option>
+                    <option value="samsung">Samsung</option>
+                </select>
+            </div>            
+        
+            <div>
+                <label for="image_file">Upload Image:</label>
+                <input type="file" id="image_file" name="image_file" accept="image/*" required>
+            </div>
+        
+            <button type="submit">Add Product</button>
+        </form>
+        
+        <a href="{{ url_for('seller_dashboard') }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>
